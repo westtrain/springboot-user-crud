@@ -26,6 +26,23 @@
 ### 4. 사용자 삭제 (DELETE /users/{index})
 - 특정 인덱스 사용자 삭제
 
+## 테스트 작성 범위
+- POST /users
+- GET /users
+- PUT /users/{index}
+- DELETE /users/{index}
+
+## 테스트 특징
+- @WebMvcTest를 이용해 Controller만 빠르게 테스트
+- Service는 @MockBean을 이용해 가짜 객체로 주입
+- HTTP Status Code 검증
+- Request/Response 구조 확인
+
+## 실행 방법
+```bash
+./mvnw spring-boot:run
+```
+
 ## 주의사항
 - 데이터는 서버 메모리에 저장되므로 서버 재시작 시 초기화됩니다.
 - Validation 실패 시 일관된 에러 포맷(JSON)으로 400 Bad Request를 반환합니다.
