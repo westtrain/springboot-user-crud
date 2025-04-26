@@ -25,15 +25,15 @@ public class HelloController {
         return helloService.getHelloMessage();
     }
 
-//    @PostMapping("/hello")
-//    public String postHello(@RequestBody @Valid HelloRequest request) {
-//        return helloService.getPersonalizedMessage(request.getName());
-//    }
-
     @PostMapping("/hello")
-    public SuccessResponse<Map<String, String>> sayHello(@RequestBody @Valid HelloRequest request) {
-        return helloService.generateMessage(request);
+    public String postHello(@RequestBody @Valid HelloRequest request) {
+        return helloService.getPersonalizedMessage(request.getName());
     }
+
+//    @PostMapping("/hello")
+//    public SuccessResponse<Map<String, String>> sayHello(@RequestBody @Valid HelloRequest request) {
+//        return helloService.generateMessage(request);
+//    }
 
 
 }

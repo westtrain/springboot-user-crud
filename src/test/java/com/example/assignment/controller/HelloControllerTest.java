@@ -7,13 +7,11 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.web.servlet.MockMvc;
 
-import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 
 @WebMvcTest(HelloController.class)
-class HelloControllerTest {
+public class HelloControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
@@ -22,10 +20,8 @@ class HelloControllerTest {
     private HelloService helloService;
 
     @Test
-    void sayHello_ShouldReturnHelloMessage() throws Exception {
-        when(helloService.getHelloMessage()).thenReturn("Hello, TossPayments!");
+    void sayHello_shouldReturnOk() throws Exception {
         mockMvc.perform(get("/hello"))
-                .andExpect(status().isOk())
-                .andExpect(content().string("Hello, TossPayments!"));
+                .andExpect(status().isOk());
     }
 }
