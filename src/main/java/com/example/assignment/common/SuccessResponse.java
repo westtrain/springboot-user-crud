@@ -1,7 +1,6 @@
 package com.example.assignment.common;
 
 public class SuccessResponse<T> {
-
     private String code;
     private String message;
     private T data;
@@ -22,5 +21,9 @@ public class SuccessResponse<T> {
 
     public T getData() {
         return data;
+    }
+
+    public static <T> SuccessResponse<T> success(T data) {
+        return new SuccessResponse<>("200", "Success", data);
     }
 }
